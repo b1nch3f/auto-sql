@@ -1,0 +1,20 @@
+What is the average YearsInCurrentRole for employees with a JobLevel of 4 in each department?
+How many employees in each department have a JobInvolvement level of 2?
+Find the count of employees in each department who have a MonthlyIncome greater than the department's 75th percentile MonthlyIncome.
+What is the average Age for employees with a JobLevel of 3 in each department?
+How does the Attrition rate vary with Gender for employees in each department?
+Find the count of employees in each department who have a DistanceFromHome less than the department's 25th percentile DistanceFromHome.
+What is the average YearsSinceLastPromotion for employees with a Promotion in each department?
+How many employees in each department have a StockOptionLevel of 1?
+Find the count of employees in each department who have a JobSatisfaction level of 2.
+What is the average JobInvolvement for employees with a DistanceFromHome greater than 15 in each department?
+How does the Attrition rate differ with JobLevel for employees in each department?
+Find the count of employees in each department who have a YearsSinceLastPromotion less than 1.
+What is the average MonthlyIncome for employees with a Promotion in each department?
+How many employees in each department have an Education level of 4?
+Find the count of employees in each department who have a MonthlyRate greater than the department's median MonthlyRate.
+What is the average Age for employees with a YearsAtCompany of 5 or more in each department?
+How does the Attrition rate vary with WorkLifeBalance for employees in each department?
+Find the count of employees in each department who have a JobInvolvement level of 4.
+What is the average YearsInCurrentRole for employees with a StockOptionLevel of 2 in each department?
+How many employees in each department have a JobRole of 'Research Director'?

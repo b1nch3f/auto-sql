@@ -1,0 +1,1136 @@
+SELECT
+                        "Department",
+                        AVG("Age") AS "Avg Age"
+                    FROM
+                        attrition
+                    WHERE
+                        "DistanceFromHome" < 10
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Avg Age" DESC
+                    LIMIT
+                        5;
+SELECT 
+                        "Department", 
+                        "JobLevel", 
+                        AVG(
+                            CASE WHEN 'Attrition' = 'Yes' THEN 1 ELSE 0 END
+                        ) AS "Avg Attrition Rate" 
+                    FROM 
+                        attrition 
+                    GROUP BY 
+                        "Department", 
+                        "JobLevel" 
+                    ORDER BY 
+                        "Avg Attrition Rate" DESC 
+                    LIMIT 
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "JobInvolvement" = 1
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        AVG("YearsSinceLastPromotion") AS "Avg Years Since Last Promotion"
+                    FROM
+                        attrition
+                    WHERE
+                        "JobSatisfaction" < 3
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Avg Years Since Last Promotion" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "StockOptionLevel" = 0
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        a."Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition a
+                    JOIN (
+                        SELECT
+                            "Department",
+                            PERCENTILE_CONT(0.25) WITHIN GROUP (ORDER BY "MonthlyIncome") AS "25th Percentile MonthlyIncome"
+                        FROM
+                            attrition
+                        GROUP BY
+                            "Department"
+                    ) b ON a."Department" = b."Department"
+                    WHERE
+                        a."MonthlyIncome" < b."25th Percentile MonthlyIncome"
+                    GROUP BY
+                        a."Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+SELECT
+                        "Department",
+                        AVG("DistanceFromHome") AS "Avg DistanceFromHome"
+                    FROM
+                        attrition
+                    WHERE
+                        "PerformanceRating" = 3
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Avg DistanceFromHome" DESC
+                    LIMIT
+                        5;
+SELECT 
+                        "Department", 
+                        "EducationField", 
+                        AVG(
+                            CASE WHEN 'Attrition' = 'Yes' THEN 1 ELSE 0 END
+                        ) AS "Avg Attrition Rate" 
+                    FROM 
+                        attrition 
+                    GROUP BY 
+                        "Department", 
+                        "EducationField" 
+                    ORDER BY 
+                        "Avg Attrition Rate" DESC 
+                    LIMIT 
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "JobSatisfaction" = 3
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        AVG("MonthlyRate") AS "Avg MonthlyRate"
+                    FROM
+                        attrition
+                    WHERE
+                        "JobLevel" = 2
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Avg MonthlyRate" DESC
+                    LIMIT
+                        5;
+SELECT
+                        a."Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition a
+                    JOIN (
+                        SELECT
+                            "Department",
+                            PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY "MonthlyIncome") AS "MedianMonthlyIncome"
+                        FROM
+                            attrition
+                        GROUP BY
+                            "Department"
+                    ) b ON a."Department" = b."Department"
+                    WHERE
+                        a."MonthlyIncome" > b."MedianMonthlyIncome"
+                    GROUP BY
+                        a."Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "TotalWorkingYears" > 10
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        AVG("Age") AS "Avg Age"
+                    FROM
+                        attrition
+                    WHERE
+                        "RelationshipSatisfaction" = 1
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Avg Age" DESC
+                    LIMIT
+                        5;
+SELECT 
+                        "Department", 
+                        "DistanceFromHome", 
+                        AVG(
+                            CASE WHEN 'Attrition' = 'Yes' THEN 1 ELSE 0 END
+                        ) AS "Avg Attrition Rate" 
+                    FROM 
+                        attrition 
+                    GROUP BY 
+                        "Department", 
+                        "DistanceFromHome" 
+                    ORDER BY 
+                        "Avg Attrition Rate" DESC 
+                    LIMIT 
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "EnvironmentSatisfaction" = 2
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        AVG("YearsAtCompany") AS "Avg YearsAtCompany"
+                    FROM
+                        attrition
+                    WHERE
+                        "RelationshipSatisfaction" = 4
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Avg YearsAtCompany" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "DailyRate" > 500
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "JobRole" = 'Laboratory Technician'
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        a."Department",
+                        AVG(a."JobInvolvement") AS "Avg Job Involvement"
+                    FROM
+                        attrition a
+                    JOIN (
+                        SELECT
+                            "Department",
+                            AVG("MonthlyIncome") AS "AvgMonthlyIncome"
+                        FROM
+                            attrition
+                        GROUP BY
+                            "Department"
+                    ) b ON a."Department" = b."Department"
+                    WHERE
+                        a."MonthlyIncome" > b."AvgMonthlyIncome"
+                    GROUP BY
+                        a."Department"
+                    ORDER BY
+                        "Avg Job Involvement" DESC
+                    LIMIT
+                        5;
+SELECT 
+                        "Department", 
+                        "MaritalStatus", 
+                        AVG(
+                            CASE WHEN 'Attrition' = 'Yes' THEN 1 ELSE 0 END
+                        ) AS "Avg Attrition Rate" 
+                    FROM 
+                        attrition 
+                    GROUP BY 
+                        "Department", 
+                        "MaritalStatus" 
+                    ORDER BY 
+                        "Avg Attrition Rate" DESC 
+                    LIMIT 
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "JobSatisfaction" = 5
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        AVG("YearsSinceLastPromotion") AS "Avg Years Since Last Promotion"
+                    FROM
+                        attrition
+                    WHERE
+                        "EnvironmentSatisfaction" < 3
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Avg Years Since Last Promotion" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "YearsInCurrentRole" < 2
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "StockOptionLevel" = 2
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        AVG("Age") AS "Avg Age"
+                    FROM
+                        attrition
+                    WHERE
+                        "PerformanceRating" = 3
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Avg Age" DESC
+                    LIMIT
+                        5;
+SELECT 
+                        "Department", 
+                        "Education", 
+                        AVG(
+                            CASE WHEN 'Attrition' = 'Yes' THEN 1 ELSE 0 END
+                        ) AS "Avg Attrition Rate" 
+                    FROM 
+                        attrition 
+                    GROUP BY 
+                        "Department", 
+                        "Education" 
+                    ORDER BY 
+                        "Avg Attrition Rate" DESC 
+                    LIMIT 
+                        5;
+SELECT
+                        a."Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition a
+                    JOIN (
+                        SELECT
+                            "Department",
+                            AVG("DailyRate") AS "AvgDailyRate"
+                        FROM
+                            attrition
+                        GROUP BY
+                            "Department"
+                    ) b ON a."Department" = b."Department"
+                    WHERE
+                        a."DailyRate" < b."AvgDailyRate"
+                    GROUP BY
+                        a."Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+SELECT
+                        "Department",
+                        AVG("YearsAtCompany") AS "Avg YearsAtCompany"
+                    FROM
+                        attrition
+                    WHERE
+                        "JobRole" = 'Sales Executive'
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Avg YearsAtCompany" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "StockOptionLevel" >= 3
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "RelationshipSatisfaction" = 4
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        AVG("MonthlyRate") AS "Avg MonthlyRate"
+                    FROM
+                        attrition
+                    WHERE
+                        "JobSatisfaction" < 3
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Avg MonthlyRate" DESC
+                    LIMIT
+                        5;
+SELECT 
+                        "Department", 
+                        "Gender", 
+                        AVG(
+                            CASE WHEN 'Attrition' = 'Yes' THEN 1 ELSE 0 END
+                        ) AS "Avg Attrition Rate" 
+                    FROM 
+                        attrition 
+                    GROUP BY 
+                        "Department", 
+                        "Gender" 
+                    ORDER BY 
+                        "Avg Attrition Rate" DESC 
+                    LIMIT 
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "JobInvolvement" = 5
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        AVG("DistanceFromHome") AS "Avg DistanceFromHome"
+                    FROM
+                        attrition
+                    WHERE
+                        "PerformanceRating" = 4
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Avg DistanceFromHome" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "PercentSalaryHike" < 15
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "JobRole" = 'Research Scientist'
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        a."Department",
+                        AVG(a."Age") AS "Avg Age"
+                    FROM
+                        attrition a
+                    JOIN (
+                        SELECT
+                            "Department",
+                            AVG("MonthlyIncome") AS "AvgMonthlyIncome"
+                        FROM
+                            attrition
+                        GROUP BY
+                            "Department"
+                    ) b ON a."Department" = b."Department"
+                    WHERE
+                        a."MonthlyIncome" < b."AvgMonthlyIncome"
+                    GROUP BY
+                        a."Department"
+                    ORDER BY
+                        "Avg Age" DESC
+                    LIMIT
+                        5;
+SELECT 
+                        "Department", 
+                        "WorkLifeBalance", 
+                        AVG(
+                            CASE WHEN 'Attrition' = 'Yes' THEN 1 ELSE 0 END
+                        ) AS "Avg Attrition Rate" 
+                    FROM 
+                        attrition 
+                    GROUP BY 
+                        "Department", 
+                        "WorkLifeBalance" 
+                    ORDER BY 
+                        "Avg Attrition Rate" DESC 
+                    LIMIT 
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "YearsInCurrentRole" < 1
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        AVG("MonthlyIncome") AS "Avg Monthly Income"
+                    FROM
+                        attrition
+                    WHERE
+                        "DistanceFromHome" > 15
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Avg Monthly Income" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "PerformanceRating" >= 4
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "JobSatisfaction" = 1
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        a."Department",
+                        AVG(a."JobInvolvement") AS "Avg Job Involvement"
+                    FROM
+                        attrition a
+                    JOIN (
+                        SELECT
+                            "Department",
+                            PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY "MonthlyRate") AS "MedianMonthlyRate"
+                        FROM
+                            attrition
+                        GROUP BY
+                            "Department"
+                    ) b ON a."Department" = b."Department"
+                    WHERE
+                        a."MonthlyRate" < b."MedianMonthlyRate"
+                    GROUP BY
+                        a."Department"
+                    ORDER BY
+                        "Avg Job Involvement" DESC
+                    LIMIT
+                        5;
+SELECT 
+                        "Department", 
+                        "EducationField", 
+                        AVG(
+                            CASE WHEN 'Attrition' = 'Yes' THEN 1 ELSE 0 END
+                        ) AS "Avg Attrition Rate" 
+                    FROM 
+                        attrition 
+                    GROUP BY 
+                        "Department", 
+                        "EducationField" 
+                    ORDER BY 
+                        "Avg Attrition Rate" DESC 
+                    LIMIT 
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "JobLevel" = 3
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        AVG("YearsSinceLastPromotion") AS "Avg Years Since Last Promotion"
+                    FROM
+                        attrition
+                    WHERE
+                        "JobSatisfaction" = 4
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Avg Years Since Last Promotion" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    JOIN (
+                        SELECT
+                            "Department",
+                            MAX("MonthlyRate") AS "MaxMonthlyRate"
+                        FROM
+                            attrition
+                        GROUP BY
+                            "Department"
+                    ) b ON a."Department" = b."Department"
+                    WHERE
+                        a."MonthlyRate" > 0.75 * b."MaxMonthlyRate"
+                    GROUP BY
+                        a."Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "RelationshipSatisfaction" = 3
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        AVG("YearsAtCompany") AS "Avg YearsAtCompany"
+                    FROM
+                        attrition
+                    WHERE
+                        "YearsSinceLastPromotion" > 0
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Avg YearsAtCompany" DESC
+                    LIMIT
+                        5;
+SELECT 
+                        "Department", 
+                        "DistanceFromHome", 
+                        AVG(
+                            CASE WHEN 'Attrition' = 'Yes' THEN 1 ELSE 0 END
+                        ) AS "Avg Attrition Rate" 
+                    FROM 
+                        attrition 
+                    GROUP BY 
+                        "Department", 
+                        "DistanceFromHome" 
+                    ORDER BY 
+                        "Avg Attrition Rate" DESC 
+                    LIMIT 
+                        5;
+SELECT
+                        "Department",
+                        AVG("MonthlyIncome") AS "Avg Monthly Income"
+                    FROM
+                        attrition
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Avg Monthly Income" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "OverTime" = 'Yes'
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        "Gender",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    GROUP BY
+                        "Department",
+                        "Gender"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        AVG("JobInvolvement") AS "Avg JobInvolvement"
+                    FROM
+                        attrition
+                    WHERE
+                        "Attrition" = 'Yes'
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Promotions"
+                    FROM
+                        attrition
+                    WHERE
+                        "YearsSinceLastPromotion" > 0
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Promotions" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "JobRole",
+                        AVG("YearsAtCompany") AS "Avg YearsAtCompany"
+                    FROM
+                        attrition
+                    GROUP BY
+                        "JobRole"
+                    ORDER BY
+                        "Avg YearsAtCompany" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "StockOptionLevel" > 1
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        a."Department",
+                        b."EducationField",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition a
+                    JOIN (
+                        SELECT
+                            "Department",
+                            "EducationField"
+                        FROM
+                            attrition
+                        GROUP BY
+                            "Department",
+                            "EducationField"
+                    ) b ON a."Department" = b."Department"
+                    GROUP BY
+                        a."Department",
+                        b."EducationField"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        AVG("DailyRate") AS "AvgDailyRate"
+                    FROM
+                        attrition
+                    WHERE
+                        "EnvironmentSatisfaction" = 4
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "AvgDailyRate" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        AVG("DistanceFromHome") AS "Avg Distance From Home"
+                    FROM
+                        attrition
+                    WHERE
+                        "OverTime" = 'Yes'
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Avg Distance From Home" DESC
+                    LIMIT
+                        5;
+SELECT 
+                        "Department", 
+                        "MaritalStatus", 
+                        AVG(
+                            CASE WHEN 'Attrition' = 'Yes' THEN 1 ELSE 0 END
+                        ) AS "Avg Attrition Rate" 
+                    FROM 
+                        attrition 
+                    GROUP BY 
+                        "Department", 
+                        "MaritalStatus" 
+                    ORDER BY 
+                        "Avg Attrition Rate" DESC 
+                    LIMIT 
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "YearsInCurrentRole" > 5
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "YearsSinceLastPromotion" = 0
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        a."Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition a
+                    WHERE
+                        a."EnvironmentSatisfaction" > 3 AND a."JobSatisfaction" < 3
+                    GROUP BY
+                        a."Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        "JobLevel",
+                        AVG("YearsInCurrentRole") AS "Avg YearsInCurrentRole"
+                    FROM
+                        attrition
+                    GROUP BY
+                        "Department",
+                        "JobLevel"
+                    ORDER BY
+                        "Avg YearsInCurrentRole" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "RelationshipSatisfaction" >= 3
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "StockOptionLevel" = 0
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        AVG("MonthlyRate") AS "Avg MonthlyRate"
+                    FROM
+                        attrition
+                    WHERE
+                        "PerformanceRating" IN (4, 5)
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Avg MonthlyRate" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        AVG("Age") AS "Avg Age"
+                    FROM
+                        attrition
+                    WHERE
+                        "JobSatisfaction" = 4
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Avg Age" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "PerformanceRating" = 3
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        a."Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition a
+                    JOIN (
+                        SELECT
+                            "Department",
+                            AVG("HourlyRate") AS "AvgHourlyRate"
+                        FROM
+                            attrition
+                        GROUP BY
+                            "Department"
+                    ) b ON a."Department" = b."Department"
+                    WHERE
+                        a."HourlyRate" > b."AvgHourlyRate"
+                    GROUP BY
+                        a."Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+SELECT
+                        "Department",
+                        AVG("YearsAtCompany") AS "Avg YearsAtCompany"
+                    FROM
+                        attrition
+                    WHERE
+                        "EnvironmentSatisfaction" < 3
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Avg YearsAtCompany" DESC
+                    LIMIT
+                        5;
+SELECT 
+                        "Department", 
+                        "JobRole", 
+                        AVG(
+                            CASE WHEN 'Attrition' = 'Yes' THEN 1 ELSE 0 END
+                        ) AS "Avg Attrition Rate" 
+                    FROM 
+                        attrition 
+                    GROUP BY 
+                        "Department", 
+                        "JobRole" 
+                    ORDER BY 
+                        "Avg Attrition Rate" DESC 
+                    LIMIT 
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "RelationshipSatisfaction" = 2
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        AVG("DailyRate") AS "AvgDailyRate"
+                    FROM
+                        attrition
+                    WHERE
+                        "WorkLifeBalance" = 4
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "AvgDailyRate" DESC
+                    LIMIT
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "StockOptionLevel" = 3
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;
+SELECT
+                        a."Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition a
+                    JOIN (
+                        SELECT
+                            "Department",
+                            PERCENTILE_CONT(0.9) WITHIN GROUP (ORDER BY "MonthlyRate") AS "90th Percentile MonthlyRate"
+                        FROM
+                            attrition
+                        GROUP BY
+                            "Department"
+                    ) b ON a."Department" = b."Department"
+                    WHERE
+                        a."MonthlyRate" > b."90th Percentile MonthlyRate"
+                    GROUP BY
+                        a."Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+SELECT
+                        a."Department",
+                        AVG(a."JobInvolvement") AS "Avg Job Involvement"
+                    FROM
+                        attrition a
+                    WHERE
+                        a."NumCompaniesWorked" > 3
+                    GROUP BY
+                        a."Department"
+                    ORDER BY
+                        "Avg Job Involvement" DESC
+                    LIMIT
+                        5;
+SELECT 
+                        "Department", 
+                        "MaritalStatus", 
+                        AVG(
+                            CASE WHEN 'Attrition' = 'Yes' THEN 1 ELSE 0 END
+                        ) AS "Avg Attrition Rate" 
+                    FROM 
+                        attrition 
+                    GROUP BY 
+                        "Department", 
+                        "MaritalStatus" 
+                    ORDER BY 
+                        "Avg Attrition Rate" DESC 
+                    LIMIT 
+                        5;
+SELECT
+                        "Department",
+                        COUNT(*) AS "Count of Employees"
+                    FROM
+                        attrition
+                    WHERE
+                        "NumCompaniesWorked" = 1
+                    GROUP BY
+                        "Department"
+                    ORDER BY
+                        "Count of Employees" DESC
+                    LIMIT
+                        5;

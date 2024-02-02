@@ -1,0 +1,80 @@
+What is the average Age for employees with a DistanceFromHome less than 10 in each department?
+How does the Attrition rate vary with JobLevel for employees in each department?
+Find the count of employees in each department who have a JobInvolvement level of 1.
+What is the average YearsSinceLastPromotion for employees with low JobSatisfaction in each department?
+How many employees in each department have a StockOptionLevel of 0?
+Find the count of employees in each department who have a MonthlyIncome less than the department's 25th percentile MonthlyIncome.
+What is the average DistanceFromHome for employees with a low PerformanceRating in each department?
+How does the Attrition rate differ with EducationField for employees in each department?
+Find the count of employees in each department who have a JobSatisfaction level of 3.
+What is the average MonthlyRate for employees with a JobLevel of 2 in each department?
+How many employees in each department have a MonthlyIncome greater than the department's median MonthlyIncome?
+Find the count of employees in each department who have a TotalWorkingYears greater than 10.
+What is the average Age for employees with a RelationshipSatisfaction level of 1 in each department?
+How does the Attrition rate vary with DistanceFromHome for employees in each department?
+Find the count of employees in each department who have an EnvironmentSatisfaction level of 2.
+What is the average YearsAtCompany for employees with a high RelationshipSatisfaction in each department?
+How many employees in each department have a DailyRate of over $500?
+Find the count of employees in each department who have a JobRole of 'Laboratory Technician'.
+What is the average JobInvolvement for employees with a high MonthlyIncome in each department?
+How does the Attrition rate differ with MaritalStatus for employees in each department?
+Find the count of employees in each department who have a JobSatisfaction level of 5.
+What is the average YearsSinceLastPromotion for employees with a low EnvironmentSatisfaction in each department?
+How many employees in each department have a YearsInCurrentRole of less than 2 years?
+Find the count of employees in each department who have a StockOptionLevel of 2.
+What is the average Age for employees with a PerformanceRating of 3 in each department?
+How does the Attrition rate vary with Education for employees in each department?
+Find the count of employees in each department who have a DailyRate less than the department's average DailyRate.
+What is the average YearsAtCompany for employees with a JobRole of 'Sales Executive' in each department?
+How many employees in each department have a StockOptionLevel of 3 or more?
+Find the count of employees in each department who have a RelationshipSatisfaction level of 4.
+What is the average MonthlyRate for employees with a low JobSatisfaction in each department?
+How does the Attrition rate differ with Gender for employees in each department?
+Find the count of employees in each department who have a JobInvolvement level of 5.
+What is the average DistanceFromHome for employees with a high PerformanceRating in each department?
+How many employees in each department have a PercentSalaryHike less than 15?
+Find the count of employees in each department who have a JobRole of 'Research Scientist'.
+What is the average Age for employees with a MonthlyIncome less than the department's average MonthlyIncome?
+How does the Attrition rate vary with WorkLifeBalance for employees in each department?
+Find the count of employees in each department who have a YearsInCurrentRole less than 1.
+What is the average MonthlyIncome for employees with a DistanceFromHome of over 15 miles in each department?
+How many employees in each department have a PerformanceRating of 4 or more?
+Find the count of employees in each department who have a JobSatisfaction level of 1.
+What is the average JobInvolvement for employees with a MonthlyRate of less than the department's median MonthlyRate?
+List different Attrition rates w.r.t. EducationField for employees in each department?
+Find the count of employees in each department who have a JobLevel of 3.
+What is the average YearsSinceLastPromotion for employees with a high JobSatisfaction in each department?
+How many employees in each department have a MonthlyRate greater than 75% of the maximum MonthlyRate in the department?
+Find the count of employees in each department who have a RelationshipSatisfaction level of 3.
+What is the average YearsAtCompany for employees with a Promotion in each department?
+How does the Attrition rate vary with DistanceFromHome for employees in each department?
+What is the average MonthlyIncome for employees in each department?
+How many employees in each department work overtime?
+Find the count of employees in each department grouped by Gender.
+What is the average JobInvolvement level for employees who experienced Attrition?
+Find the count of employees who received a promotion in each department.
+What is the average YearsAtCompany for employees in each JobRole?
+How many employees have a StockOptionLevel greater than 1 in each department?
+Find the count of employees in each department grouped by EducationField.
+What is the average DailyRate for employees who have a high EnvironmentSatisfaction level in each department?
+What is the average DistanceFromHome of employees who work overtime in each department?
+How does the Attrition rate vary with MaritalStatus within each department?
+Find the count of employees who have been in their current role for more than 5 years in each department.
+How many employees in each department have had no promotion since joining the company?
+Find the count of employees in each department who have high EnvironmentSatisfaction and low JobSatisfaction.
+What is the average YearsInCurrentRole for employees with different JobLevels in each department?
+How many employees in each department have a RelationshipSatisfaction level of 3 or more?
+Find the count of employees in each department who have a StockOptionLevel of 0.
+What is the average MonthlyRate for employees with a PerformanceRating of 4 or 5 in each department?
+What is the average Age for employees with a JobSatisfaction level of 4 in each department?
+How many employees in each department have a PerformanceRating of 3?
+Find the count of employees in each department who have an HourlyRate greater than the department's average HourlyRate.
+What is the average YearsAtCompany for employees with low EnvironmentSatisfaction in each department?
+How does the Attrition rate vary with JobRole for employees in each department?
+Find the count of employees in each department who have a RelationshipSatisfaction level of 2.
+What is the average DailyRate for employees with a high WorkLifeBalance in each department?
+How many employees in each department have a StockOptionLevel of 3?
+Find the count of employees in each department who have a MonthlyRate greater than the department's 90th percentile MonthlyRate.
+What is the average JobInvolvement for employees who have worked in more than three companies in each department?
+How does the Attrition rate differ with MaritalStatus for employees in each department?
+Find the count of employees in each department who have a NumCompaniesWorked of 1.
